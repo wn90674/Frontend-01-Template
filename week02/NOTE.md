@@ -2,6 +2,7 @@
 ### BNF范式
 BNF就是巴科特·瑙尔式的缩写，这位大师的其中一个成就就是发明了高级语言`FORTRAN`;
 纪念他老人家，我们把他提出的这一套描述编程语言的方法叫做BNF;
+
 BNF中的基本内容：
 - 在双引号中的字("word")代表着这些字符本身。而double_quote用来代表双引号。
 - 在双引号外的字（有可能有下划线）代表着语法部分。
@@ -10,6 +11,28 @@ BNF中的基本内容：
 - 大括号( { } )内包含的为可重复0至无数次的项。
 - 竖线( | )表示在其左右两边任选一项，相当于"OR"的意思。
 - ::= 是"被定义为"的意思。
+
+```
+<Number> = "0" | "1" | "2" | ..... | "9"
+
+<DecimalNumber> = "0" | (("1" | "2" | ..... | "9") <Number>* )
+
+<PrimaryExpression> = <DecimalNumber> |
+    "(" <LogicalExpression> ")"
+
+<MultiplicativeExpression> = <PrimaryExpression> | 
+    <MultiplicativeExpression> "*" <PrimaryExpression>| 
+    <MultiplicativeExpression> "/" <PrimaryExpression>
+
+<AdditiveExpression> = <MultiplicativeExpression> | 
+    <AdditiveExpression> "+" <MultiplicativeExpression>| 
+    <AdditiveExpression> "-" <MultiplicativeExpression>
+
+<LogicalExpression> = <AdditiveExpression> | 
+    <LogicalExpression> "||" <AdditiveExpression> | 
+    <LogicalExpression> "&&" <AdditiveExpression>
+```    
+
 ```
 // [lua版本](https://www.bilibili.com/video/BV1Us411h72K?from=search&seid=17665706219357746407)
 <syntax>          ::= <rule> | <rule> <syntax>
@@ -94,4 +117,4 @@ String.fromCharCode(0x41) => 'A
 缩小到原来的倍数，即：
 `(0.1 * 10 + 0.2 * 10) / 10 === 0.3`
 >需要注意的是js的数值不仅有最小误差精度丢失，超出一定的上限(`Number.MAX_SAFE_INTEGER`),此时也会有出现偏差的风险。尤其是在涉及金额方面的业务时候，
-如果后台返回了一个long类型数据的接口, 在`JSON.stringify`处理返回数据的时候，就会出现丢失精度，目前找到的解决方案有2个: 1、后台更改为string返回；2、使用第三方库或者自定义parser来替代`JSON.stringify`；
+如果后台返回了一个long类型数据的接口, 在`JSON.parse`处理返回数据的时候，就会出现丢失精度，目前找到的解决方案有2个: 1、后台更改为string返回；2、使用第三方库或者自定义parser来替代`JSON.parse`；
