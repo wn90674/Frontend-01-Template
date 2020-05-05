@@ -83,7 +83,11 @@ export function convertStringToNumber(str: string, radix: Radix = 10) {
  * @param precision {number} 小数位有效精度
  * @returns {String}
  */
-export function convertNumberToString(num: number, radix: Radix = 10, precision = 54) {
+export function convertNumberToString(
+  num: number,
+  radix: Radix = 10,
+  precision = 54,
+) {
   const mapStr = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let ret: Array<number | Dot> = [];
 
@@ -104,9 +108,8 @@ export function convertNumberToString(num: number, radix: Radix = 10, precision 
     ret.push('.');
 
     let exp = 0;
-    // 这个条件有点问题，第一个条件显示会导致比toString计算的结果少三位精度
-    // 所以直接选择了54位精度作为限制条件<54位以后都是0>
-    while (fraction >= Number.EPSILON || Math.abs(exp) <= precision) {
+    // 当前进制下最小的数值为 radix**-54
+    while (fraction >= radix ** -55) {
       exp--;
       let temp = Math.floor(fraction / radix ** exp);
       ret.push(temp);

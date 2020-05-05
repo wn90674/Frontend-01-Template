@@ -1,0 +1,33 @@
+{
+  "name": "Frontend-01-Template",
+  "version": "1.0.0",
+  "description": "## 讲师课件下载地址",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wn90674/Frontend-01-Template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wn90674/Frontend-01-Template/issues"
+  },
+  "homepage": "https://github.com/wn90674/Frontend-01-Template#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "husky": "^4.2.5",
+    "jest": "^26.0.0",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  }  
+}

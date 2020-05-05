@@ -26,3 +26,11 @@
 
 ## 注意事项
  如果对 Git 和 GitHub 不太了解，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2) 或者极客时间的[《玩转 Git 三剑客》](https://time.geekbang.org/course/intro/145)视频课程。
+
+```模板
+#学号:G20200447010892
+#姓名:吴宁
+#班级:2班
+#小组:罗汉组
+#作业&总结链接:https://github.com/wn90674/Frontend-01-Template/tree/master/week03
+```
