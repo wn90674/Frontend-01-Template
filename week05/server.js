@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, {
     'content-type': 'text/plain',
     // 如果不设置content-length，相应为Transfer-Encoding:chunked;
-    'content-length': Buffer.byteLength(result)
+    // 'content-length': Buffer.byteLength(result)
   }).end(result);
 });
 
