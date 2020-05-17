@@ -19,6 +19,7 @@
   "homepage": "https://github.com/wn90674/Frontend-01-Template#readme",
   "devDependencies": {
     "@types/jest": "^25.2.1",
+    "chalk": "^4.0.0",
     "husky": "^4.2.5",
     "jest": "^26.0.0",
     "ts-jest": "^25.4.0",
@@ -29,5 +30,5 @@
       "pre-commit": "npm test",
       "pre-push": "npm test"
     }
-  }  
+  }
 }

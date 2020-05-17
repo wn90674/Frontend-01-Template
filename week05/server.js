@@ -1,6 +1,7 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
+  
   res.setHeader('content-type', 'text/html');
   res.setHeader('X-Foo', 'bar');
   // writeHead中的配置会与setHead中的对象进行合并，相同情况下
