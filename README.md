@@ -32,5 +32,5 @@
 #姓名:吴宁
 #班级:2班
 #小组:罗汉组
-#作业&总结链接:https://github.com/wn90674/Frontend-01-Template/tree/master/week03
+#作业&总结链接:https://github.com/wn90674/Frontend-01-Template/tree/master/week06
 ```
